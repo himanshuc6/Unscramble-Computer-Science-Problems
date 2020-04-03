@@ -18,5 +18,20 @@ also time spent on the phone.
 Print a message:
 "<telephone number> spent the longest time, <total time> seconds, on the phone during 
 September 2016.".
+
 """
+timeonphone={}
+for call in calls:
+    if call[0] in timeonphone.keys():
+        timeonphone[call[0]]+=int(call[3])
+    else:
+        timeonphone[call[0]]=0
+    if call[1] in timeonphone.keys():
+        timeonphone[call[1]]+=int(call[3])
+    else:
+        timeonphone[call[1]]=0
+
+
+print("{} spent the longest time, {} seconds, on the phone during September 2016.".format(max(timeonphone,key=timeonphone.get),
+                                                                                         timeonphone[max(timeonphone,key=timeonphone.get)]))
 
